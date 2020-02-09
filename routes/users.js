@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { check, validationResult } = require('express-validator');
 const config = require('config');
+const { check, validationResult } = require('express-validator/check');
+
 const User = require('../models/User');
 
-// @route   POST api/users
-// @desc    Register a user
-// @access  Public
+// @route     POST api/users
+// @desc      Regiter a user
+// @access    Public
 router.post(
   '/',
   [
@@ -33,7 +34,7 @@ router.post(
       let user = await User.findOne({ email });
 
       if (user) {
-        return res.status(400).json({ msg: 'User alredy exists' });
+        return res.status(400).json({ msg: 'User already exists' });
       }
 
       user = new User({
@@ -61,9 +62,7 @@ router.post(
           expiresIn: 360000
         },
         (err, token) => {
-          if (err) {
-            throw err;
-          }
+          if (err) throw err;
           res.json({ token });
         }
       );
