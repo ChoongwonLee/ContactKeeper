@@ -12,6 +12,7 @@
 # production
 /build
 /client/build
+production.json
 
 # misc
 .DS_Store
