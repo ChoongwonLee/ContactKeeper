@@ -76,6 +76,17 @@ const Login = props => {
           className='btn btn-primary btn-block'
         />
       </form>
+      <br /> <br />
+      <div className='card'>
+        <h2>To test this application: </h2>
+        <p>Login with</p>
+        <p>
+          <span className='text-primary'>jdoe@email.com</span>
+        </p>
+        <p>
+          <span className='text-primary'>123456</span>
+        </p>
+      </div>
     </div>
   );
 };
