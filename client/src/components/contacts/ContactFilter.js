@@ -7,6 +7,7 @@ const ContactFilter = () => {
 
   const { filterContacts, clearFilter, filtered } = contactContext;
 
+  // eslint-disable-next-line
   useEffect(() => {
     if (filtered === null) {
       setText('');
