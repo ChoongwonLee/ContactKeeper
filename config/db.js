@@ -4,7 +4,6 @@ const config = require('config');
 
 const connectDB = async () => {
   try {
-    console.log(process.env.MONGODB_URI);
     await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useCreateIndex: true,
@@ -12,7 +11,6 @@ const connectDB = async () => {
     });
     console.log('MongoDB Connected...');
   } catch (err) {
-    console.log(process.env.MONGODB_URI);
     console.log(err.message);
     process.exit(1);
   }
